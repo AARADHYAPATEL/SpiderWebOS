@@ -138,7 +138,7 @@
 
             .window {
                 position: absolute;
-                top: 48px;
+                top: 110px;
                 left: 50%;
                 transform: translateX(-50%);
 
@@ -155,16 +155,71 @@
                 box-shadow: 8px 8px 0 #8EBD97;
             }
 
-            .top_bar {
-                display: flex;
+            .top-bar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                box-sizing: border-box;
+                z-index: 10;
+
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                align-items: center;
+                gap: 16px;
+                padding: 10px 18px;
+
+                color: #EFFFF3;
+                background: radial-gradient(circle at 20% 0%, rgba(111, 255, 170, 0.22), transparent 35%)
+                linear-gradient(90deg, rgba(4, 30, 22, 0.93), rgba(18, 87, 55, 0.78), rgba(4, 30, 22, 0.93));
+                backdrop-filter: blur(16px);
+                border-bottom: 1px solid rgba(190, 255, 213, 0.4);
+                box-shadow: 0 6px 22px rgba(0, 20, 10, 0.45);
+            }
+
+            .top-bar p {
+                margin: 12px 0;
+                color: white;
+            }
+
+            .os-name {
+                font-family: "Fira Code", monospace;
+                font-weight: 800;
+                letter-spacing: 1px;
+                text-shadow: 0 0 12px rgba(135, 255, 186, 0.85);
+            }
+
+            .system-status {
+                padding: 5px 12px;
+                border: 1px solid rgba(190, 255, 213, 0.5);
+                border-radius: 999px;
+                background-color: rgba(220, 255, 230, 0.12);
+                font-size: 14px;
+                font-weight: 800;
+                letter-spacing: 0.8px;
+            }
+
+            #timeElement {
+                justify-self: end;
+                font-family: "Fira Code", monospace;
+                font-size: 14px;
+                color: #B9FFD0;
+            }
+
+            .top-bar .system-status {
+                color: #123D29;
+                background-color: rgba(190, 255, 210, 0.9);
+                border: 1px solid #58E889;
+                box-shadow: 0 0 16px rgba(88, 232, 137, 0.45);
+                text-shadow: none;
             }
         </style>
     </head>
 
   <body>
     <div class="top-bar">
-        <p>SpiderOS</p>
-        <p>Building, learning, and exploring</p>
+        <p class="os-name">🕸 SpiderOS</p>
+        <p class="system-status">⚡ WEB SIGNAL: STRONG</p>
         <p id="timeElement">loading time...</p>
     </div>
     <div class="window">
