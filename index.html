@@ -307,6 +307,18 @@
             <li>I have never broken a bone in my life</li>
         </ul>
     </div>
+    <script>
+        function updateTime() {
+            var currentTime = new Date().toLocaleString();
+            var timeText = document.querySelector("#timeElement");
+            timeText.innerHTML = currentTime;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
+
+    </script>
   </body>
 
 </html>
