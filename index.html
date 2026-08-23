@@ -10,15 +10,26 @@
         <style>
             body {
                 background-color: #DCE8D5;
+                background-image: radial-gradient(#B8D8BA 1px, transparent 1px);
+                background-size: 22px 22px;
                 font-family: "Nunito", Arial, sans-serif;
                 font-size: 18px;
                 line-height: 1.6;
-                padding: 20px;
+                padding: 24px;
+                color: #263B2E;
+                margin: 0;
             }
 
             h1 {
                 font-family: "Space Grotesk", Arial, sans-serif;
                 font-size: 48px;
+                font-weight: 700;
+                color: #FFFFFF;
+                background-color: #24573E;
+                margin: 4px 0 14px;
+                padding: 12px 18px;
+                border-radius: 16px;
+                box-shadow: 5px 5px 0 #8EBD97;
                 font-weight: 700;
                 color: #204E38;
             }
@@ -27,121 +38,187 @@
                 font-family: "Space Grotesk", Arial, sans-serif;
                 font-size: 30px;
                 color: #2D6A4F;
+                margin: 30px 0 8px;
+                padding-bottom: 4px;
+                border-bottom: 2px solid #95BFA5;
+                margin-top: 34px;
+                margin-bottom: 10px;
             }
 
             h3 {
                 font-family: "Fira Code", monospace;
                 font-size: 20px;
-                color: #3A5A40
+                color: #3A5A40;
+                margin: 18px 0 2px;
+                margin-bottom: 2px;
             }
 
-            p,
-            li {
+            p {
+                margin: 8px 0 14px;
+                margin-top: 8px;
+                margin-bottom: 14px;
                 font-size: 18px;
                 color: #263B2E;
             }
 
+            ul {
+                margin: 10px 0 18px;
+                padding-left: 28px;
+                background-color: #F3F8F0;
+                padding: 14px 14px 14px 38px;
+                border-radius: 12px;
+            }
+
+            li {
+                font-size: 18px;
+                color: #263B2E;
+                margin: 4px 0;
+                margin-bottom: 4px;
+            }
+
             a {
-                color: #1B6F56;
+                color: #FFFFFF;
                 font-weight: 800;
+                display: inline-block;
+                background-color: #3B7357;
+                margin: 4px 0;
+                padding: 8px 14px;
+                border-radius: 999px;
+                text-decoration: none;
             }
 
             a:hover {
-                color: #0B3D2E;
+                background-color: #173D2A;
+                transform: translateY(-2px);
             }
 
             img {
                 border-radius: 20px;
+                display: block;
+                width: 300px;
+                max-width: 100%;
+                margin: 12px 0 8px;
+                margin-top: 14px;
+                margin-bottom: 8px;
+                border: 4px solid #FFFFFF;
+                box-shadow: 5px 5px 0 #8EBD97;
+            }
+
+            details {
+                background-color: #EEF5E9;
+                margin-top: 18px;
+                padding: 12px 16px;
+                border-radius: 12px;
+            }
+
+            summary {
+                font-weight: 800;
+                cursor: pointer;
+                color: #24573E
+            }
+
+            strong {
+                color: #1E6846;
+            }
+
+            dfn {
+                color: #24573E;
+                font-weight: 800;
+            }
+
+            abbr {
+                text-decoration-color: #3B7357;
+                cursor: help;
             }
         </style>
     </head>
 
   <body>
-    <h1>Welcome to SpiderOS 🕷️</h1>
-    <h2>Introduction</h2>
-    <p>Hello Worlds! Just joking, welcome to my little corner
-       where I share my interests, projects and things I enjoy!
-    </p>
-    <img src="./1000480443.jpg" alt="SpiderOS image" width="300"/>
-    <p>
-    <a href="https://www.linkedin.com/in/aaradhya-patel-414a202b9/">Connect with me on LinkedIn</a>
-    </p>
-
-    <p>
-        <a href="https://open.spotify.com/playlist/4ztTPgjzZiyxHZk10ylD4d?si=71457a38564146e9" target="_blank">
-            My favorite Playlist on Spotify
-        </a>
-    </p>
-
-    <h2>My Favorite Hobbies</h2>
-
-    <p>
-        I really enjoy learning new things. Reading books, playing basketball,
-        coding, experimenting with AI and listening to some good music are some
-        of my top hobbies.
-    </p>
-
-    <ul>
-        <li>Coding</li>
-        <li>Listening to Music</li>
-        <li>Playing video games</li>
-        <li>Learning more about technology</li>
-        <li>Reading books</li>
-        <li>Playing basketball</li>
-        <li>Crocheting</li>
-        <li>Cooking food</li>
-    </ul>
-
-    <p>I once thought coding was <s>too difficult</s>, but I now find it 
-       <strong>creative, challenging, and fun.</strong></p>
-
-    <p>I enjoy learning <abbr title="Artificial Intelligence">AI</abbr> and 
-       learning how it can make everyday life better.</p>
-
-    <p>
-        <dfn>Web development</dfn> is the process of creating websites and web apps,
-        and it is something I am excited to keep learning.
-    </p>
-
-    <p>
-        My interests keep growing:<br />
-        one day I might be coding a new feature,<br />
-        the next day I could be reading, cooking, or playing basketball.
-    </p>
-
-    <details>
-        <summary>A little more about me</summary>
-        <p>
-            I like building projects that are useful, creative, and enjoyable for 
-            people to use.
+    <div>
+        <h1>Welcome to SpiderOS 🕷️</h1>
+        <h2>Introduction</h2>
+        <p>Hello Worlds! Just joking, welcome to my little corner
+        where I share my interests, projects and things I enjoy!
         </p>
-    </details>
+        <img src="./1000480443.jpg" alt="SpiderOS image"/>
+        <p>
+        <a href="https://www.linkedin.com/in/aaradhya-patel-414a202b9/">Connect with me on LinkedIn</a>
+        </p>
 
-    <h2>My Projects</h2>
+        <p>
+            <a href="https://open.spotify.com/playlist/4ztTPgjzZiyxHZk10ylD4d?si=71457a38564146e9" target="_blank">
+                My favorite Playlist on Spotify
+            </a>
+        </p>
 
-    <h3>ConnectCircle</h3>
-    <p>ConnectCircle is a student wellbeing app where students can make connections with their peers
-       log their mood, share them in circle chats, which are basically group chats, and can do much, much more.
-    </p>
+        <h2>My Favorite Hobbies</h2>
 
-    <h3>SpiderOS</h3>
-    <p>
-        SpiderOS is one of my first Web OS projects, I am building it as a fun
-        way to explore web development and turn creative ideas into something
-        people can use.
-    </p>
+        <p>
+            I really enjoy learning new things. Reading books, playing basketball,
+            coding, experimenting with AI and listening to some good music are some
+            of my top hobbies.
+        </p>
 
-    <h2>Fun Facts about me</h2>
-    <ul>
-        <li>My favorite food is Biryani (any form)</li>
-        <li>My favorite book is Chanakya's Chant by Ashwin Sanghi</li>
-        <li>My favorite game is GOW - God of War (the entire series, waiting for Laufei!)</li>
-        <li>My goal is to be successful in life.</li>
-        <li>One of my favorite series is Avatar: The last airbender</li>
-        <li>I have never broken a bone in my life</li>
-    </ul>
+        <ul>
+            <li>Coding</li>
+            <li>Listening to Music</li>
+            <li>Playing video games</li>
+            <li>Learning more about technology</li>
+            <li>Reading books</li>
+            <li>Playing basketball</li>
+            <li>Crocheting</li>
+            <li>Cooking food</li>
+        </ul>
 
+        <p>I once thought coding was <s>too difficult</s>, but I now find it 
+        <strong>creative, challenging, and fun.</strong></p>
 
+        <p>I enjoy learning <abbr title="Artificial Intelligence">AI</abbr> and 
+        learning how it can make everyday life better.</p>
+
+        <p>
+            <dfn>Web development</dfn> is the process of creating websites and web apps,
+            and it is something I am excited to keep learning.
+        </p>
+
+        <p>
+            My interests keep growing:<br />
+            one day I might be coding a new feature,<br />
+            the next day I could be reading, cooking, or playing basketball.
+        </p>
+
+        <details>
+            <summary>A little more about me</summary>
+            <p>
+                I like building projects that are useful, creative, and enjoyable for 
+                people to use.
+            </p>
+        </details>
+
+        <h2>My Projects</h2>
+
+        <h3>ConnectCircle</h3>
+        <p>ConnectCircle is a student wellbeing app where students can make connections with their peers
+        log their mood, share them in circle chats, which are basically group chats, and can do much, much more.
+        </p>
+
+        <h3>SpiderOS</h3>
+        <p>
+            SpiderOS is one of my first Web OS projects, I am building it as a fun
+            way to explore web development and turn creative ideas into something
+            people can use.
+        </p>
+
+        <h2>Fun Facts about me</h2>
+        <ul>
+            <li>My favorite food is Biryani (any form)</li>
+            <li>My favorite book is Chanakya's Chant by Ashwin Sanghi</li>
+            <li>My favorite game is GOW - God of War (the entire series, waiting for Laufei!)</li>
+            <li>My goal is to be successful in life.</li>
+            <li>One of my favorite series is Avatar: The last airbender</li>
+            <li>I have never broken a bone in my life</li>
+        </ul>
+    </div>
   </body>
 
 </html>
