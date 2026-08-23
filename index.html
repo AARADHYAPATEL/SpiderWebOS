@@ -10,14 +10,19 @@
         <style>
             body {
                 background-color: #DCE8D5;
-                background-image: radial-gradient(#B8D8BA 1px, transparent 1px);
-                background-size: 22px 22px;
+                background-image: url("./DSC06160.JPG");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+
                 font-family: "Nunito", Arial, sans-serif;
                 font-size: 18px;
                 line-height: 1.6;
                 padding: 24px;
-                color: #263B2E;
+                color: #20342A;
                 margin: 0;
+                min-height: 100vh;
             }
 
             h1 {
@@ -130,11 +135,39 @@
                 text-decoration-color: #3B7357;
                 cursor: help;
             }
+
+            .window {
+                position: absolute;
+                top: 48px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                width: 80%;
+                max-width: 850px;
+                box-sizing: border-box;
+                padding: 28px;
+
+                background-color: rgba(248, 252, 246, 0.92);
+                border: 8px ridge #3B7357;
+                outline: 3px dotted #FFFFFF;
+                outline-offset: 6px;
+                border-radius: 20px;
+                box-shadow: 8px 8px 0 #8EBD97;
+            }
+
+            .top_bar {
+                display: flex;
+            }
         </style>
     </head>
 
   <body>
-    <div>
+    <div class="top-bar">
+        <p>SpiderOS</p>
+        <p>Building, learning, and exploring</p>
+        <p id="timeElement">loading time...</p>
+    </div>
+    <div class="window">
         <h1>Welcome to SpiderOS 🕷️</h1>
         <h2>Introduction</h2>
         <p>Hello Worlds! Just joking, welcome to my little corner
