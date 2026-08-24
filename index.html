@@ -1,264 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8"/>
-        <title>SpiderOS</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Nunito:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
 
-        <style>
-            body {
-                background-color: #DCE8D5;
-                background-image: url("./DSC06160.JPG");
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
+<head>
+    <meta charset="UTF-8" />
+    <title>SpiderOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Nunito:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+</head>
 
-                font-family: "Nunito", Arial, sans-serif;
-                font-size: 18px;
-                line-height: 1.6;
-                padding: 24px;
-                color: #20342A;
-                margin: 0;
-                min-height: 100vh;
-            }
-
-            h1 {
-                font-family: "Space Grotesk", Arial, sans-serif;
-                font-size: 48px;
-                font-weight: 700;
-                color: #FFFFFF;
-                background-color: #24573E;
-                margin: 4px 0 14px;
-                padding: 12px 18px;
-                border-radius: 16px;
-                box-shadow: 5px 5px 0 #8EBD97;
-                font-weight: 700;
-                color: #204E38;
-            }
-
-            h2 {
-                font-family: "Space Grotesk", Arial, sans-serif;
-                font-size: 30px;
-                color: #2D6A4F;
-                margin: 30px 0 8px;
-                padding-bottom: 4px;
-                border-bottom: 2px solid #95BFA5;
-                margin-top: 34px;
-                margin-bottom: 10px;
-            }
-
-            h3 {
-                font-family: "Fira Code", monospace;
-                font-size: 20px;
-                color: #3A5A40;
-                margin: 18px 0 2px;
-                margin-bottom: 2px;
-            }
-
-            p {
-                margin: 8px 0 14px;
-                margin-top: 8px;
-                margin-bottom: 14px;
-                font-size: 18px;
-                color: #263B2E;
-            }
-
-            ul {
-                margin: 10px 0 18px;
-                padding-left: 28px;
-                background-color: #F3F8F0;
-                padding: 14px 14px 14px 38px;
-                border-radius: 12px;
-            }
-
-            li {
-                font-size: 18px;
-                color: #263B2E;
-                margin: 4px 0;
-                margin-bottom: 4px;
-            }
-
-            a {
-                color: #FFFFFF;
-                font-weight: 800;
-                display: inline-block;
-                background-color: #3B7357;
-                margin: 4px 0;
-                padding: 8px 14px;
-                border-radius: 999px;
-                text-decoration: none;
-            }
-
-            a:hover {
-                background-color: #173D2A;
-                transform: translateY(-2px);
-            }
-
-            img {
-                border-radius: 20px;
-                display: block;
-                width: 300px;
-                max-width: 100%;
-                margin: 12px 0 8px;
-                margin-top: 14px;
-                margin-bottom: 8px;
-                border: 4px solid #FFFFFF;
-                box-shadow: 5px 5px 0 #8EBD97;
-            }
-
-            details {
-                background-color: #EEF5E9;
-                margin-top: 18px;
-                padding: 12px 16px;
-                border-radius: 12px;
-            }
-
-            summary {
-                font-weight: 800;
-                cursor: pointer;
-                color: #24573E
-            }
-
-            strong {
-                color: #1E6846;
-            }
-
-            dfn {
-                color: #24573E;
-                font-weight: 800;
-            }
-
-            abbr {
-                text-decoration-color: #3B7357;
-                cursor: help;
-            }
-
-            .window {
-                position: absolute;
-                top: 110px;
-                left: 10%;
-                transform: none;
-
-                width: 80%;
-                max-width: 850px;
-                box-sizing: border-box;
-                padding: 28px;
-
-                background-color: rgba(248, 252, 246, 0.92);
-                border: 8px ridge #3B7357;
-                outline: 3px dotted #FFFFFF;
-                outline-offset: 6px;
-                border-radius: 20px;
-                box-shadow: 8px 8px 0 #8EBD97;
-            }
-
-            .top-bar {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                box-sizing: border-box;
-                z-index: 10;
-
-                display: grid;
-                grid-template-columns: 1fr auto 1fr;
-                align-items: center;
-                gap: 16px;
-                padding: 10px 18px;
-
-                color: #EFFFF3;
-                background: radial-gradient(circle at 20% 0%, rgba(111, 255, 170, 0.22), transparent 35%),
-                linear-gradient(90deg, rgba(4, 30, 22, 0.93), rgba(18, 87, 55, 0.78), rgba(4, 30, 22, 0.93));
-                backdrop-filter: blur(16px);
-                border-bottom: 1px solid rgba(190, 255, 213, 0.4);
-                box-shadow: 0 6px 22px rgba(0, 20, 10, 0.45);
-            }
-
-            .top-bar p {
-                margin: 12px 0;
-                color: white;
-            }
-
-            .os-name {
-                font-family: "Fira Code", monospace;
-                font-weight: 800;
-                letter-spacing: 1px;
-                text-shadow: 0 0 12px rgba(135, 255, 186, 0.85);
-                cursor: pointer;
-            }
-
-            .system-status {
-                padding: 5px 12px;
-                border: 1px solid rgba(190, 255, 213, 0.5);
-                border-radius: 999px;
-                background-color: rgba(220, 255, 230, 0.12);
-                font-size: 14px;
-                font-weight: 800;
-                letter-spacing: 0.8px;
-            }
-
-            #timeElement {
-                justify-self: end;
-                font-family: "Fira Code", monospace;
-                font-size: 14px;
-                color: #B9FFD0;
-            }
-
-            .top-bar .system-status {
-                color: #123D29;
-                background-color: rgba(190, 255, 210, 0.9);
-                border: 1px solid #58E889;
-                box-shadow: 0 0 16px rgba(88, 232, 137, 0.45);
-                text-shadow: none;
-            }
-
-            #welcomeWindowheader {
-                cursor: grab;
-                user-select: none;
-            }
-
-            #welcomeWindowheader:active {
-                cursor: grabbing;
-            }
-
-            .window-close {
-                position: absolute;
-                top: 14px;
-                right: 14px;
-
-                cursor: pointer;
-                border: none;
-                border-radius: 50%;
-                width: 32px;
-                height: 32px;
-
-                background-color: #A93D54;
-                color: white;
-                font-size: 22px;
-                font-weight: 800;
-            }
-        </style>
-    </head>
-
-  <body>
-    <div class="top-bar">
+<body>
+    <div class="top-bar" id="topBar">
         <p class="os-name" id="welcomeOpen">🕸 SpiderOS</p>
         <p class="system-status">⚡ WEB SIGNAL: STRONG</p>
         <p id="timeElement">loading time...</p>
     </div>
+    <div id="desktopApps">
+        <div class="desktop-app" id="threadbookIcon">
+            <img class="desktop-app-icon" src="./WIN_20260727_13_08_29_Pro.jpg" alt="Threadbook app icon"/>
+            <p class="desktop-app-label">Threadbook</p>
+        </div>
+    </div>
     <div class="window" id="welcomeWindow">
-        <button id="welcomeClose" class="window-close" type="button">×</button>
+        <button id="welcomeClose" class="window-close" type="button" aria-label="Close welcome window"
+            title="Close">×</button>
         <h1 id="welcomeWindowheader">Welcome to SpiderOS 🕷️</h1>
         <h2>Introduction</h2>
         <p>Hello Worlds! Just joking, welcome to my little corner
-        where I share my interests, projects and things I enjoy!
+            where I share my interests, projects and things I enjoy!
         </p>
-        <img src="./1000480443.jpg" alt="SpiderOS image"/>
+        <img src="./1000480443.jpg" alt="SpiderOS image" />
         <p>
-        <a href="https://www.linkedin.com/in/aaradhya-patel-414a202b9/">Connect with me on LinkedIn</a>
+            <a href="https://www.linkedin.com/in/aaradhya-patel-414a202b9/">Connect with me on LinkedIn</a>
         </p>
 
         <p>
@@ -286,11 +62,12 @@
             <li>Cooking food</li>
         </ul>
 
-        <p>I once thought coding was <s>too difficult</s>, but I now find it 
-        <strong>creative, challenging, and fun.</strong></p>
+        <p>I once thought coding was <s>too difficult</s>, but I now find it
+            <strong>creative, challenging, and fun.</strong>
+        </p>
 
-        <p>I enjoy learning <abbr title="Artificial Intelligence">AI</abbr> and 
-        learning how it can make everyday life better.</p>
+        <p>I enjoy learning <abbr title="Artificial Intelligence">AI</abbr> and
+            learning how it can make everyday life better.</p>
 
         <p>
             <dfn>Web development</dfn> is the process of creating websites and web apps,
@@ -306,7 +83,7 @@
         <details>
             <summary>A little more about me</summary>
             <p>
-                I like building projects that are useful, creative, and enjoyable for 
+                I like building projects that are useful, creative, and enjoyable for
                 people to use.
             </p>
         </details>
@@ -315,7 +92,7 @@
 
         <h3>ConnectCircle</h3>
         <p>ConnectCircle is a student wellbeing app where students can make connections with their peers
-        log their mood, share them in circle chats, which are basically group chats, and can do much, much more.
+            log their mood, share them in circle chats, which are basically group chats, and can do much, much more.
         </p>
 
         <h3>SpiderOS</h3>
@@ -335,7 +112,25 @@
             <li>I have never broken a bone in my life</li>
         </ul>
     </div>
+    <div class="window threadbook-window" id="threadbookWindow" style="display: none;">
+        <button
+            id="threadbookClose"
+            class="window-close"
+            type="button"
+            aria-label="Close Threadbook"
+            title="Close"
+        >×</button>
+
+        <h1 id="threadbookWindowheader">Threadbook 📖</h1>
+
+        <div class="threadbook-content">
+            <h2>Threadbook</h2>
+            <p>Your personal collection of projects, interests, ideas, and milestones. Think of it
+                as your digital scrapbook!
+            </p>
+        </div>
+    </div>
     <script src="./script.js"></script>
-  </body>
+</body>
 
 </html>
