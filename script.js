@@ -46,6 +46,21 @@ function dragElement(elmnt) {
 }
 
 var welcomeScreen = document.querySelector("#welcomeWindow");
+var welcomeScreenClose = document.querySelector("#welcomeClose");
+var welcomeScreenOpen = document.querySelector("#welcomeOpen");
+
 function closeWindow(element) {
+    element.style.display = "none";
+}
+
+function openWindow(element) {
     element.style.display = "block";
 }
+
+welcomeScreenClose.addEventListener("click", function() {
+    closeWindow(welcomeScreen);
+});
+
+welcomeScreenOpen.addEventListener("click", function () {
+    openWindow(welcomeScreen);
+});
