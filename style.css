@@ -792,3 +792,25 @@ body.night-mode .top-bar[data-thread="soundtrack"] {
         radial-gradient(circle at 20% 0%, rgba(193, 155, 255, 0.2), transparent 35%),
         linear-gradient(90deg, #151A3E, #473669, #151A3E);
 }
+
+body.night-mode .window details {
+    background: #193450;
+    border: 1px solid #587BB4;
+}
+
+body.night-mode .window summary {
+    color: #D7E8FF;
+}
+
+body.night-mode .window details p {
+    color: #E3F1FF;
+}
+
+body.night-mode .window ul {
+    background: #193450;
+    border: 1px solid #587BB4;
+}
+
+body.night-mode .window li {
+    color: #E3F1FF;
+}
