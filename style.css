@@ -814,3 +814,16 @@ body.night-mode .window ul {
 body.night-mode .window li {
     color: #E3F1FF;
 }
+
+@media (max-width: 640px) {
+    .threadbook-window,
+    .threads-window {
+        top: 100px;
+        left: 24px;
+        width: calc(100% - 48px);
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+}

@@ -446,7 +446,6 @@ function renderThreadsScene() {
   `;
 
   document.querySelector("#threadsCaption").textContent = scene.caption;
-  document.querySelector(".system-status").textContent = "🕸 THREAD SIGNAL: GROWING";
 
   var buttons = panel.querySelectorAll(".thread-choice");
 
