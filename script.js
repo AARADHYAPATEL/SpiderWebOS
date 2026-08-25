@@ -53,6 +53,11 @@ var topBar = document.querySelector("#topBar");
 
 function closeWindow(element) {
   element.style.display = "none";
+
+  if(element.id === "threadsWindow") {
+    document.querySelector(".system-status").textContent =
+      "⚡ WEB SIGNAL: STRONG";
+  }
 }
 
 function makeClosable(elementName) {
@@ -90,6 +95,11 @@ function openWindow(element) {
   biggestIndex++;
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
+
+  if (element.id === "threadsWindow") {
+    document.querySelector(".system-status").textContent =
+      "🕸 THREAD SIGNAL: GROWING";
+  }
 }
 
 var threadbookScreen = document.querySelector("#threadbookWindow");
@@ -291,3 +301,236 @@ setThreadbookContent(0);
 initializeWindow("welcomeWindow");
 initializeWindow("threadbookWindow", "threadbookIcon");
 initializeWindow("threadsWindow", "threadsIcon");
+
+var threadsState = {
+  scene: 0,
+  qualities: []
+};
+
+var threadsScenes = [
+  {
+    title: "The Broken Thread",
+    caption: "A snapped line rocks gently after the rain.",
+    text: "Morning arrives quietly. The little spider finds one side of its web open to the sky. There is still enough thread to begin, but not enough to know exactly where it will lead.",
+    choices: [
+      {
+        label: "Spin a brave new line into the open air.",
+        quality: "courage",
+        color: "warm",
+        response: "The first new thread catches the morning light."
+      },
+      {
+        label: "Trace the old silk and learn what stayed strong.",
+        quality: "patience",
+        color: "blue",
+        response: "The old threads still have something to teach."
+      }
+    ]
+  },
+  {
+    title: "The Heavy Dewdrop",
+    caption: "A dewdrop gathers where two threads meet.",
+    text: "A dewdrop has grown large enough to bend the silk. It shines beautifully, but it asks the web to carry more than it did yesterday.",
+    choices: [
+      {
+        label: "Steady the thread and carry the weight together.",
+        quality: "care",
+        color: "green",
+        response: "The web bends, but it does not break."
+      },
+      {
+        label: "Let the drop fall and make room for what comes next",
+        quality: "release",
+        color: "blue",
+        response: "The air feels wider after the drop falls."
+      }
+    ]
+  },
+  {
+    title: "The Restless Wind",
+    caption: "A breeze moves through the garden like a question.",
+    text: "The wind nudges every line at once. The little spider can hold close to the centre or travel with the motion toward something unfamiliar.",
+    choices: [
+      {
+        label: "Hold the centre and let the web hum around it.",
+        quality: "steadiness",
+        color: "gold",
+        response: "The centre remains calm while the rest of the web sways."
+      },
+      {
+        label: "Ride the breeze toward a new branch.",
+        quality: "curiosity",
+        color: "pink",
+        response: "A new branch waits exactly where the wind carries the spider."
+      }
+    ]
+  },
+  {
+    title: "The Firefly's Light",
+    caption: "A firefly pauses beside the web, glowing softly.",
+    text: "As dusk gathers, a tired firefly hovers nearby. Its light makes the missing threads easier to see.",
+    choices: [
+      {
+        label: "Welcome the firefly's light for a little while.",
+        quality: "trust",
+        color: "gold",
+        response: "Help does not make the web any less the spider's own."
+      },
+      {
+        label: "Offer a quite corner of the web for the firefly to rest.",
+        quality: "kindness",
+        color: "green",
+        response: "The firefly's small light warms the whole web."
+      }
+    ]
+  },
+  {
+    title: "The Open Space",
+    caption: "The web is almost whole, except for one bright gap.",
+    text: "Night has come, and one open space remains. It could be woven shut, or left open for tomorrow's unexpected light.",
+    choices: [
+      {
+        label: "Finish the last circle and make the web complete.",
+        quality: "commitment",
+        color: "warm",
+        response: "The final line finds its place."
+      },
+      {
+        label: "Leave a doorway for the morning to enter.",
+        quality: "hope",
+        color: "pink",
+        response: "Not every unfinished thing is missing. Some things are waiting."
+      }
+    ]
+  }
+];
+
+function renderThreadsProgress() {
+  var progress = document.querySelector("#threadsProgress");
+  progress.innerHTML = "";
+
+  for (var i = 0; i < threadsScenes.length; i++) {
+    var marker = document.createElement("div");
+    marker.classList.add("thread-marker");
+
+    if (i < threadsState.scene) {
+      marker.classList.add("complete");
+    }
+
+    if (i === threadsState.scene && threadsState.scene < threadsScenes.length) {
+      marker.classList.add("current");
+    }
+
+    progress.appendChild(marker);
+  }
+}
+
+function renderThreadsScene() {
+  var scene = threadsScenes[threadsState.scene];
+  var panel = document.querySelector("#threadsPanel");
+  var choices = "";
+
+  for (var i = 0; i < scene.choices.length; i++) {
+    choices += `
+      <button class="thread-choice" type="button" data-choice="${i}">
+        ${scene.choices[i].label}
+      </button>
+    `;
+  }
+
+  panel.innerHTML = `
+    <p class="thread-number">THREAD ${String(threadsState.scene + 1).padStart(2, "0")} / 05</p>
+    <h2>${scene.title}</h2>
+    <p>${scene.text}</p>
+    <div class="thread-choices">${choices}</div>
+  `;
+
+  document.querySelector("#threadsCaption").textContent = scene.caption;
+  document.querySelector(".system-status").textContent = "🕸 THREAD SIGNAL: GROWING";
+
+  var buttons = panel.querySelectorAll(".thread-choice");
+
+  for (var j = 0; j < buttons.length; j++) {
+    buttons[j].addEventListener("click", function () {
+      var choiceIndex = Number(this.dataset.choice);
+      chooseThread(threadsScenes[threadsState.scene].choices[choiceIndex]);
+    });
+  }
+
+  renderThreadsProgress();
+}
+
+function chooseThread(choice) {
+  var panel = document.querySelector("#threadsPanel");
+  var strand = document.querySelector("#threadStrand" + threadsState.scene);
+  var dew = document.querySelector("#threadDew" + threadsState.scene);
+
+  threadsState.qualities.push(choice.quality);
+
+  strand.classList.add("active", choice.color);
+  dew.classList.add("active");
+
+  panel.innerHTML = `
+    <p class="thread-number">THE WEB CHANGES</p>
+    <h2>${choice.quality}</h2>
+    <p>${choice.response}</p>
+  `;
+
+  document.querySelector("#threadsCaption").textContent = choice.response;
+
+  threadsState.scene++;
+
+  setTimeout(function () {
+    if (threadsState.scene === threadsScenes.length) {
+      renderThreadsEnding();
+    } else {
+      renderThreadsScene();
+    }
+  }, 900);
+}
+
+function renderThreadsEnding() {
+  var panel = document.querySelector("#threadsPanel");
+  var qualityTags = "";
+
+  for (var i = 0; i < threadsState.qualities.length; i++) {
+    qualityTags += `<span class="ending-quality">${threadsState.qualities[i]}</span>`;
+  }
+
+  panel.innerHTML = `
+    <p class="thread-number">THE WEB HOLDS</p>
+    <h2>A web made for tomorrow</h2>
+    <p>
+      By nightfall, the little spider has woven a web shaped by its choices.
+      It is not the same web it woke beside-but it is stronger because it changed
+    </p>
+
+    <div>${qualityTags}</div>
+
+    <button class="restart-thread-button" type="button">
+      Spin another web
+    </button>
+  `;
+
+  document.querySelector(".system-status").textContent = "🕸 THREAD SIGNAL: COMPLETE";
+  document.querySelector("#threadsCaption").textContent = 
+    "The garden is quiet. The web is ready for tomorrow.";
+
+  panel.querySelector(".restart-thread-button").addEventListener("click", restartThreadsStory);
+
+  renderThreadsProgress();
+}
+
+function restartThreadsStory() {
+  threadsState.scene = 0;
+  threadsState.qualities = [];
+
+  for (var i = 0; i < 5; i++) {
+    document.querySelector("#threadStrand" + i).className.baseVal = "thread-strand";
+    document.querySelector("#threadDew" + i).className.baseVal = "thread-dew";
+  }
+
+  renderThreadsScene();
+}
+
+renderThreadsScene();

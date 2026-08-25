@@ -449,3 +449,238 @@ abbr {
     left:14%;
     width: min(900px, calc(100% - 48px));
 }
+
+.threads-story {
+    margin-top: 18px;
+}
+
+.threads-progress {
+    display: flex;
+    gap: 10px;
+    margin: 14px 0 18px;
+}
+
+.thread-marker {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #72957A;
+    border-radius: 50%;
+    background: #B8CAB9;
+    box-shadow: inset 0 0 0 2px #F6FFF6;
+}
+
+.thread-marker.complete {
+    background: #86D3A1;
+    border-color: #378050;
+    box-shadow: 0 0 12px rgba(77, 192, 116, 0.8);
+}
+
+.thread-marker.current {
+    background: #DFFBC6;
+    border-color: #478F68;
+    animation: threadPulse 1.7s ease-in-out infinite;
+}
+
+@keyframes threadPulse {
+    50% {
+        transform: scale(1.17);
+        box-shadow: 0 0 15px #9CF5B5;
+    }
+}
+
+.threads-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(0, 1fr);
+    gap: 22px;
+}
+
+.garden-stage {
+    display: grid;
+    align-content: center;
+    min-height: 410px;
+    padding: 12px;
+    color: #EAFEEA;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(216, 254, 213, 0.46), transparent 42%),
+        linear-gradient(145deg, #102F25, #1C5140);
+    border: 1px solid #79A786;
+    border-radius: 19px;
+    box-shadow: inset 0 0 35px rgba(3, 31, 18, 0.65);
+}
+
+.threads-web {
+    width: 100%;
+    max-width: 390px;
+    margin: auto;
+    overflow: visible;
+}
+
+.garden-glow {
+    fill: #CFFFD8;
+    opacity: 0.16;
+}
+
+.garden-leaf {
+    fill: #285B38;
+    opacity: 0.7;
+}
+
+.thread-base,
+.thread-strand {
+    fill: none;
+    stroke: #D8FFE3;
+    stroke-linecap: round;
+    stroke-width: 2.5;
+}
+
+.thread-base {
+    opacity: 0.55;
+    stroke-dasharray: 9 7;
+}
+
+.thread-strand {
+    opacity: 0;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    transition: opacity 0.7s ease, stroke-dashoffset 0.7s ease;
+}
+
+.thread-strand.active {
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
+
+.thread-strand.warm { stroke: #FFF0A9; }
+.thread-strand.blue { stroke: #B6ECFF; }
+.thread-strand.green { stroke: #C6FFD3; }
+.thread-strand.pink { stroke: #FFD1E5; }
+.thread-strand.gold { stroke: #FFE7A0; }
+
+.thread-dew {
+    opacity: 0;
+    fill: #DDFFFF;
+    stroke: #9BD9E8;
+    stroke-width: 2;
+    transition: opacity 0.7s ease;
+}
+
+.thread-dew.active {
+    opacity: 1;
+}
+
+.little-spider {
+    fill: #27392C;
+    stroke: #D2F8DA;
+    stroke-linecap: round;
+    stroke-width: 3;
+}
+
+.garden-caption {
+    min-height: 28px;
+    color: #E7FFE9;
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+}
+
+.threads-panel {
+    display: flex;
+    min-height: 410px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    background: #F1F8ED;
+    border: 1px solid #AAC9B1;
+    border-radius: 18px;
+}
+
+.threads-panel h2 {
+    margin: 0 0 9px;
+    color: #24573E;
+}
+
+.thread-number {
+    margin: 0 0 8px;
+    color: #537A60;
+    font-family: "Fira Code", monospace;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.thread-choices {
+    display: grid;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.thread-choice,
+.restart-thread-button {
+    padding: 13px 15px;
+    color: #153F28;
+    cursor: pointer;
+    background: #DFF1DF;
+    border: 2px solid #8CBD99;
+    border-radius: 13px;
+    font: inherit;
+    font-weight: 800;
+    text-align: left;
+}
+
+.thread-choice:hover {
+    background: #C8E8D0;
+    transform: translateY(-2px);
+}
+
+.restart-thread-button {
+    margin-top: 20px;
+    color: #FFFFFF;
+    background: #24573E;
+    border-color: #24573E;
+    text-align: center;
+}
+
+.ending-quality {
+    display: inline-block;
+    margin: 4px 4px 0 0;
+    padding: 5px 9px;
+    color: #24573E;
+    background: #D6EFDA;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+@media (max-width: 640px) {
+    .threads-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .garden-stage,
+    .threads-panel {
+        min-height: auto;
+    }
+}
+
+#threadsWindowheader {
+    cursor: grab;
+    user-select: none;
+}
+
+#threadsWindowheader:active {
+    cursor: grabbing;
+}
+
+#welcomeWindow {
+    top: 105px;
+    left: 190px;
+    width: min(780px, calc(100% - 230px));
+}
+
+@media (max-width: 640px) {
+    #welcomeWindow {
+        top: 100px;
+        left: 24px;
+        width: calc(100% - 48px);
+    }
+}

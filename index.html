@@ -149,8 +149,79 @@
 
         <p class="threadbook-kicker">A SMALL STORY AFTER THE RAIN</p>
 
-        <div class="threads-placeholder">
-            <p>The garden is quiet. A little spider has found its web broken by the rain.</p>
+        <div class="threads-story">
+            <div class="threads-progress" id="threadsProgress" aria-label="Story progress"></div>
+
+            <div class="threads-layout">
+                <div class="garden-stage">
+                    <svg
+                        class="threads-web"
+                        id="threadsWeb"
+                        viewBox="0 0 360 360"
+                        role="img"
+                        aria-label="A spider web that grows with every choice"
+                    >
+                        <defs>
+                            <filter id="webGlow">
+                                <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+                                <feMerge>
+                                    <feMergeNode in="blur"></feMergeNode>
+                                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <circle cx="180" cy="180" r="170" class="garden-glow"></circle>
+
+                        <path class="garden-leaf leaf-left"
+                            d="M-8 88 C52 5 115 46 130 113 C65 136 17 130 -8 88Z"></path>
+                        <path class="garden-leaf leaf-right"
+                            d="M365 280 C289 216 240 257 229 330 C290 348 340 328 365 280Z"></path>
+
+                        <g filter="url(#webGlow)">
+                            <path
+                                class="thread-base"
+                                d="M180 180 L180 26 M180 180 L313 104 M180 180 L300 300 M180 180 L63 300 M180 180 L47 104"
+                            ></path>
+
+                            <path id="threadStrand0" class="thread-strand"
+                                d="M121 76 Q180 114 239 76 M72 127 Q120 179 72 230"></path>
+
+                            <path id="threadStrand1" class="thread-strand"
+                                d="M239 76 Q282 128 300 178 M72 230 Q120 277 180 330"></path>
+
+                            <path id="threadStrand2" class="thread-strand"
+                                d="M300 178 Q282 236 239 282 M180 330 Q119 285 63 300"></path>
+
+                            <path id="threadStrand3" class="thread-strand"
+                                d="M239 282 Q182 255 121 282 M63 300 Q74 237 72 230"></path>
+
+                            <path id="threadStrand4" class="thread-strand"
+                                d="M121 282 Q81 235 60 180 M60 180 Q78 122 121 76"></path>
+
+                            <circle id="threadDew0" class="thread-dew" cx="121" cy="76" r="6"></circle>
+                            <circle id="threadDew1" class="thread-dew" cx="300" cy="178" r="5"></circle>
+                            <circle id="threadDew2" class="thread-dew" cx="180" cy="330" r="6"></circle>
+                            <circle id="threadDew3" class="thread-dew" cx="63" cy="300" r="5"></circle>
+                            <circle id="threadDew4" class="thread-dew" cx="239" cy="76" r="5"></circle>
+                        </g>
+
+                        <g class="little-spider">
+                            <circle cx="180" cy="180" r="12"></circle>
+                            <circle cx="180" cy="165" r="8"></circle>
+                            <path
+                                d="M169 171 l-17 -11 M170 178 l-20 0 M171 185 l-17 12
+                                   M191 171 l17 -11 M190 178 l20 0 M189 185 l17 12"
+                            ></path>
+                        </g>
+                    </svg>
+
+                    <p class="garden-caption" id="threadsCaption">
+                        Rain has left a few bright drops behind.
+                    </p>
+                </div>
+                <div class="threads-panel" id="threadsPanel" aria-live="polite"></div>
+            </div>
         </div>
     </div>
     <script src="./script.js"></script>
