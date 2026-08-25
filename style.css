@@ -709,10 +709,13 @@ abbr {
 }
 
 body.night-mode {
-    background-color: #071B2C;
-    background-image: linear-gradient(rgba(4, 17, 35, 0.72), rgba(4, 17, 35, 0.88)),
-                      url("./DSC06160.JPG");
-    background-blend-mode: multiply;
+    background-color: #0C1D33;
+    background-image: 
+        linear-gradient(
+            rgba(6, 21, 42, 0.36),
+            rgba(6, 21, 42, 0.52)
+        ),
+        url("./DSC06160.JPG");
 }
 
 body.night-mode .top-bar {
