@@ -534,3 +534,24 @@ function restartThreadsStory() {
 }
 
 renderThreadsScene();
+
+var themeToggle = document.querySelector("#themeToggle");
+
+function setTheme(isNight) {
+  document.body.classList.toggle("night-mode", isNight);
+
+  themeToggle.textContent = isNight ? "☀️ Day mode" : "🌙 Night mode";
+  themeToggle.setAttribute("aria-pressed", isNight);
+  themeToggle.setAttribute(
+    "aria-label",
+    isNight ? "Switch to day mode" : "Switch to night mode"
+  );
+
+  localStorage.setItem("spideros-theme", isNight ? "night" : "day");
+}
+
+themeToggle.addEventListener("click", function () {
+  setTheme(!document.body.classList.contains("night-mode"));
+});
+
+setTheme(localStorage.getItem("spideros-theme") === "night");
