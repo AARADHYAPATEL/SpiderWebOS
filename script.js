@@ -64,12 +64,25 @@ function makeClosable(elementName) {
   });
 }
 
-function initializeWindow(elementName) {
-  var screen = document.querySelector("#" + elementName);
+function initializeIcon(iconId, windowId) {
+  var icon = document.querySelector("#" + iconId);
+  var screen = document.querySelector("#" + windowId);
+
+  icon.addEventListener("click", function () {
+    handleIconTap(icon, screen);
+  });
+}
+
+function initializeWindow(windowId, iconId) {
+  var screen = document.querySelector("#" + windowId);
 
   addWindowTapHandling(screen);
-  makeClosable(elementName);
+  makeClosable(windowId);
   dragElement(screen);
+
+  if (iconId) {
+    initializeIcon(iconId, windowId);
+  }
 }
 
 function openWindow(element) {
@@ -116,16 +129,16 @@ function deselectIcon(element) {
   selectedIcon = undefined;
 }
 
-function handleIconTap(element) {
-  if (element.classList.contains("selected")) {
-    deselectIcon(element);
-    openWindow(threadbookScreen);
+function handleIconTap(icon, screen) {
+  if (icon.classList.contains("selected")) {
+    deselectIcon(icon);
+    openWindow(screen);
   } else {
     if (selectedIcon) {
       deselectIcon(selectedIcon);
     }
 
-    selectIcon(element);
+    selectIcon(icon);
   }
 }
 
@@ -275,9 +288,6 @@ for (var i = 0; i < threadbookEntries.length; i++) {
 
 setThreadbookContent(0);
 
-threadbookIcon.addEventListener("click", function () {
-  handleIconTap(threadbookIcon);
-});
-
 initializeWindow("welcomeWindow");
-initializeWindow("threadbookWindow");
+initializeWindow("threadbookWindow", "threadbookIcon");
+initializeWindow("threadsWindow", "threadsIcon");

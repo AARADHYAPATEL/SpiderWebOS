@@ -436,3 +436,16 @@ abbr {
 .top-bar[data-thread="soundtrack"] {
     background: linear-gradient(90deg, #1B2445, #53427A, #1B2445);
 }
+
+.threads-app-icon {
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle, #DFF9E2, #557E8C 48%, #263E4A 75%);
+    font-size: 38px;
+}
+
+.threads-window {
+    top: 126px;
+    left:14%;
+    width: min(900px, calc(100% - 48px));
+}
