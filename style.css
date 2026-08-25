@@ -774,3 +774,21 @@ body.night-mode .theme-toggle {
         bottom: 16px;
     }
 }
+
+body.night-mode .top-bar[data-thread="build-log"] {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(93, 255, 170, 0.18), transparent 35%),
+        linear-gradient(90deg, #071D19, #1D5A47, #071D19);
+}
+
+body.night-mode .top-bar[data-thread="bookshelf"] {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(255, 225, 132, 0.16), transparent 35%),
+        linear-gradient(90deg, #282312, #66581F, #282312);
+}
+
+body.night-mode .top-bar[data-thread="soundtrack"] {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(193, 155, 255, 0.2), transparent 35%),
+        linear-gradient(90deg, #151A3E, #473669, #151A3E);
+}
